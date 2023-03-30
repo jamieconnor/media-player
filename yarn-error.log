@@ -1,0 +1,51 @@
+Arguments: 
+  /Users/jamesconnor/.nvm/versions/node/v16.17.0/bin/node /usr/local/Cellar/yarn/1.22.19/libexec/bin/yarn.js add axios
+
+PATH: 
+  /usr/local/sbin:/Users/jamesconnor/.rbenv/shims:/Users/jamesconnor/Library/pnpm:/Users/jamesconnor/.serverless/bin:/usr/local/opt/php@7.2/sbin:/usr/local/opt/php@7.2/bin:/Users/jamesconnor/.composer/vendor/bin:/Users/jamesconnor/.zplug/bin:/Library/Frameworks/Python.framework/Versions/3.9/bin:/Users/jamesconnor/.nvm/versions/node/v16.17.0/bin:/Users/jamesconnor/.composer/vendor/bin:/usr/local/opt/imagemagick@6/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  16.17.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: ENOENT: no such file or directory, copyfile '/Users/jamesconnor/Library/Caches/Yarn/v6/npm-ms-2.1.2-d09d1f357b443f493382a8eb3ccd183872ae6009-integrity/node_modules/ms/readme.md' -> '/Users/jamesconnor/www/music-player/node_modules/@babel/core/node_modules/ms/readme.md'
+
+npm manifest: 
+  {
+    "name": "music-player",
+    "version": "1.0.0",
+    "main": "node_modules/expo/AppEntry.js",
+    "scripts": {
+      "start": "expo start",
+      "android": "expo start --android",
+      "ios": "expo start --ios",
+      "web": "expo start --web"
+    },
+    "dependencies": {
+      "@expo/webpack-config": "^18.0.1",
+      "axios": "^1.3.4",
+      "expo": "~48.0.9",
+      "expo-linear-gradient": "~12.1.2",
+      "expo-status-bar": "~1.4.4",
+      "react": "18.2.0",
+      "react-dom": "18.2.0",
+      "react-native": "0.71.4",
+      "react-native-web": "~0.18.10"
+    },
+    "devDependencies": {
+      "@babel/core": "^7.20.0"
+    },
+    "private": true
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
