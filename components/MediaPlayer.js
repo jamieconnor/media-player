@@ -1,6 +1,7 @@
+import { Audio } from 'expo-av';
 import { BlurView } from 'expo-blur';
 import React, { useRef, useState } from 'react';
-import { Animated, Image, StyleSheet } from 'react-native';
+import { Animated, Image, StyleSheet, TouchableOpacity } from 'react-native';
 const playSquare = require('../assets/play-square.png');
 const pauseSquare = require('../assets/pause-square.png');
 
@@ -8,31 +9,41 @@ export default function MediaPlayer({currentSong, setCurrentSong}) {
   const [playing, setPlaying] = useState(false)
   // const [animationValue, setAnimationValue] = useState(-100)
   const animationValue = useRef(new Animated.Value(-100)).current;
-  const player = useRef(new Audio());
+  const player = useRef(new Audio.Sound());
   React.useEffect(() => {
-    player.current.addEventListener('ended', () => {
-      setPlaying(false);
-      player.current.src = null;
-      setCurrentSong(null);
-    });
+    // player.current.addEventListener('ended', () => {
+    //   setPlaying(false);
+    //   player.current.src = null;
+    //   setCurrentSong(null);
+    // });
   }, []);
   React.useEffect(() => {
     setPlaying(false);
     if (currentSong) {
       fadeIn();
-      player.current.src = currentSong.previewUrl;
+      try {
+        player.current.unloadAsync().then(() => {
+          player.current.loadAsync({ uri: currentSong.previewUrl})
+        })
+      } catch (error) {
+        console.log(error);
+      }
     } else {
       fadeOut();
     }
   }, [currentSong]);
 
   const play = () => {
-    player.current.play();
+    try {
+      player.current.playAsync()
+    } catch (error) {
+      console.log(error);
+    }
     setPlaying(true);
   }
   
   const pause = () => {
-    player.current.pause();
+    player.current.pauseAsync()
     setPlaying(false);
   }
 
@@ -73,10 +84,22 @@ export default function MediaPlayer({currentSong, setCurrentSong}) {
       >
         { animationValue.current }
         {
-          !playing && <Image source={{uri: playSquare}} style={styles.playIcon} onClick={play}/>
+          !playing &&
+          <TouchableOpacity
+            style={styles.listItem}
+            onPress={play}
+          >
+            <Image source={playSquare} style={styles.playIcon}/>
+          </TouchableOpacity>
         }
         {
-          playing && <Image source={{uri: pauseSquare}} style={styles.playIcon} onClick={pause} />
+          playing && 
+          <TouchableOpacity
+            style={styles.listItem}
+            onPress={pause}
+          >
+            <Image source={pauseSquare} style={styles.playIcon} />
+          </TouchableOpacity>
         }
       </BlurView>
     </Animated.View>
@@ -85,8 +108,9 @@ export default function MediaPlayer({currentSong, setCurrentSong}) {
 
 const styles = StyleSheet.create({
   mediaPlayerContainer: {
-    position: 'fixed',
+    position: 'absolute',
     left: 0,
+    bottom: -100,
     width: '100%',
     height: 100,
     zIndex: 100

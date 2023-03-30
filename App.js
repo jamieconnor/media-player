@@ -48,8 +48,8 @@ export default function App() {
       <LinearBackground>
         <SearchInput setSearchResults={setSearchResults} setCurrentSong={setCurrentSong} />
         <ResultsList searchResults={searchResults} currentSong={currentSong} setCurrentSong={setCurrentSong} />
-        <MediaPlayer currentSong={currentSong}/>
       </LinearBackground>
+      <MediaPlayer currentSong={currentSong}/>
     </View>
   );
 }
@@ -61,6 +61,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     margin: 0,
-    padding: '0px',
+    padding: 0,
   },
 });

@@ -9,7 +9,7 @@ const LinearBackground = ({ children }) => {
       colors={[styleVars.green600, styleVars.green200]}
       start={[0, 0.5]}
       end={[1.1, 0.5]}
-      style={{flex: 1, width: '100%'}}
+      style={{flex: 1, width: '100%', height: '100%'}}
     >
       {children}
     </LinearGradient>

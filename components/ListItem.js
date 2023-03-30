@@ -19,7 +19,7 @@ export default function ListItem({song, currentSong, setCurrentSong}) {
       <View style={{ flex: 1, justifyContent: 'space-between' }}>
         <View style={{ minHeight: 72 }}>
           <Text style={styles.listItemTextName}>{song.artistName}</Text>
-          <Text style={styles.listItemTextAddress}>{song.trackName}</Text>
+          <Text style={styles.listItemTextTrack}>{song.trackName}</Text>
         </View>
       </View>
 
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     paddingBottom: 3,
     paddingRight: 5,
   },
-  listItemTextAddress: {
+  listItemTextTrack: {
     fontFamily: 'poppins',
     fontSize: 14,
     lineHeight: 16,

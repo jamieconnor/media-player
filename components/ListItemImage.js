@@ -10,7 +10,7 @@ export default function ListItemImage({ imageSrc, playing }) {
   >
     {
       playing &&
-      <Image source={{uri: playIcon}} style={styles.playIcon} />
+      <Image source={playIcon} style={styles.playIcon} />
     }
   </ImageBackground>
 }

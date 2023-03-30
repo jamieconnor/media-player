@@ -10,7 +10,7 @@ export default function ResultsList({refresh, searchResults, currentSong, setCur
       data={searchResults}
       renderItem={({item}) => <ListItem key={item.trackId} song={item} currentSong={currentSong} setCurrentSong={setCurrentSong} />}
       keyExtractor={(item) => {
-        item.trackId;
+        return item.trackId + item.trackName;
       }}
       onRefresh={() => refresh}
       refreshing={false}
@@ -23,6 +23,7 @@ export default function ResultsList({refresh, searchResults, currentSong, setCur
 const styles = StyleSheet.create({
   searchNoResult: {
     marginBottom: 15,
+    minHeight: '100%',
     color: styleVars.white,
     fontFamily: 'poppins',
     textAlign: 'center'
