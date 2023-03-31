@@ -1,4 +1,4 @@
-# Appert Skills Test
+# W23 Skills Test
 
 An app that uses the iTunes API to search for an artists songs and listen to them
 
